@@ -1,8 +1,5 @@
 #TWISTTER PLUS 
-
-<p> Twistter Plus é um projeto baseado no Twitter™ a ideia é replicar suas funcionalidades.
-</p>
-
+<p> Twistter Plus é um projeto baseado no Twitter™ a ideia é replicar suas funcionalidades.</p>
 
 ##CircleCI
 <p>Continuos Integration.</p>
