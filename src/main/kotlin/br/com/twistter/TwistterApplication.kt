@@ -1,4 +1,4 @@
-package br.com.twistter.main
+package br.com.twistter
 
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication
