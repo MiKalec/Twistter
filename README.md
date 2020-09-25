@@ -1,7 +1,7 @@
-#TWISTTER PLUS 
+# TWISTTER PLUS 
 <p> Twistter Plus é um projeto baseado no Twitter™ a ideia é replicar suas funcionalidades.</p>
 
-##CircleCI
+## CircleCI
 <p>Continuos Integration.</p>
 
 ## Kotlin
@@ -12,5 +12,5 @@
 ## Gradle
 <p> Gerinciamento de denpendencias.</p>
 
-##Jira
+## Jira
 <p> Para controle e planejamento do projeto.</p>
