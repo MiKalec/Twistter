@@ -1,0 +1,31 @@
+body {
+    padding: 150px 0;
+    text-align: center
+}
+body {
+    line-height: 32pt;
+}
+label {
+    display: inline-block;
+    float: center;
+    clear: center;
+    width: 150px;
+    text-align: center;
+}
+input {
+    display: inline-block;
+    float: center;
+    background-color: #cccccc;
+}
+.gender > label {
+    display: inline-block;
+    float: center;
+    width: 200px;
+    text-align: center;
+}
+simple-form input:valid {
+    background-color: palegreen;
+}
+simple-form input:invalid {
+    border: 2px solid red;
+}
