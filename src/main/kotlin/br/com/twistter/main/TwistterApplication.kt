@@ -1,11 +1,18 @@
 package br.com.twistter.main
 
+import org.springframework.boot.CommandLineRunner
+import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.runApplication
+import org.springframework.boot.web.servlet.ServletComponentScan
 
+@ServletComponentScan
 @SpringBootApplication
-open class TwitterplusApplication
+open class TwistterApplication : CommandLineRunner {
+    @Throws(Exception::class)
+    override fun run(vararg args: String) {
+    }
+}
 
 fun main(args: Array<String>) {
-    runApplication<TwitterplusApplication>(*args)
+    SpringApplication.run(TwistterApplication::class.java, *args)
 }
