@@ -1,7 +1,10 @@
 package br.com.twistter.controllers
 
 import br.com.twistter.model.User
+import br.com.twistter.model.UserRoles
+import br.com.twistter.model.enums.RoleType
 import br.com.twistter.repository.UserRepository
+import br.com.twistter.repository.UserRolesRepository
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.PostMapping
@@ -14,6 +17,7 @@ import javax.validation.Valid
 @Controller
 class   RegisterController(
     private val userRepository: UserRepository,
+    private val userRolesRepository: UserRolesRepository,
     private val passwordEncoder: PasswordEncoder
 ) {
 
@@ -36,6 +40,7 @@ class   RegisterController(
         val mv = ModelAndView("redirect:login")
         if (!validateUser(user)) {
             mv.viewName = "signup"
+            mv.addObject("person", User())
             return mv
         }
         val userSaved: User = save(user)
@@ -54,7 +59,12 @@ class   RegisterController(
         val userToSave: User = user
         userToSave.password = passwordEncoder.encode(user.password)
         userToSave.enabled = true
+
+        val role = UserRoles(user = userToSave, role = RoleType.USER)
+        role.login = userToSave.login
+
         userRepository.save(userToSave)
+        userRolesRepository.save(role)
         return userToSave
     }
 }

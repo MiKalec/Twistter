@@ -25,5 +25,7 @@ data class User(
     @Column
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
-    val creationTime: Date? = null
+    val creationTime: Date? = null,
+    @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL])
+    var userRoles: Set<UserRoles?>? = null
 )

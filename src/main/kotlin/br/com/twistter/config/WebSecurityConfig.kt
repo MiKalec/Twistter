@@ -1,6 +1,5 @@
 package br.com.twistter.config
 
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
@@ -13,31 +12,38 @@ import javax.sql.DataSource
 
 @Configuration
 @EnableWebSecurity
-open class WebSecurityConfig : WebSecurityConfigurerAdapter() {
+open class WebSecurityConfig(private val dataSource: DataSource) : WebSecurityConfigurerAdapter() {
     companion object {
         private const val LOGIN_PAGE = "/login.html"
-        private const val DEFAULT_URL = "/"
+        private const val DEFAULT_URL = "/home.html"
         private const val USERNAME = "username"
         private const val PASSWORD = "password"
     }
-
-    @Autowired
-    lateinit var dataSource: DataSource
 
     @Throws(Exception::class)
     override fun configure(http: HttpSecurity) {
         http
             .csrf().disable()
             .authorizeRequests()
+            .antMatchers("/signup", "/h2/**", "/css/**", "/doRegister")
+            .permitAll()
             .antMatchers(LOGIN_PAGE)
             .permitAll()
-            .anyRequest().authenticated()
+            .anyRequest()
+            .authenticated()
             .and()
             .formLogin()
             .loginPage(LOGIN_PAGE)
             .defaultSuccessUrl(DEFAULT_URL)
             .permitAll()
-            .usernameParameter(USERNAME).passwordParameter(PASSWORD).permitAll()
+            .usernameParameter(USERNAME)
+            .passwordParameter(PASSWORD)
+            .and()
+            .logout()
+            .logoutUrl("/logout")
+            .logoutSuccessUrl("/login.html")
+            .permitAll()
+
         http
             .headers().frameOptions().disable()
     }
