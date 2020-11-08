@@ -12,12 +12,17 @@ class HomeController(
     private val userRepository: UserRepository
 ) {
 
-    @RequestMapping("/home.html")
+    @RequestMapping("/")
     fun homePage(principal: Principal): ModelAndView {
-        var mv = ModelAndView("home")
+        val mv = ModelAndView("home")
         val user = getUserLogged(principal)
+        fillUser(mv, user)
 
-        return ModelAndView("home")
+        return mv
+    }
+
+    private fun fillUser(mv: ModelAndView, user: User?) {
+        mv.addObject("user", user)
     }
 
     private fun getUserLogged(principal: Principal) =

@@ -4,9 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <title>Sua home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    <meta charset="UTF-8">
-    <h1>Você está logado!</h1>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Twistter+</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a class="active" href="/">Home</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" th:href="@{/logout}" method="post"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="row">
+    <div class="col-lg-4" th:object="${user}">
+        <section class="card">
+            <div class="media">
+                <div class="media-body">
+                    <h2><b><div th:text="*{name}"></div></b></h2>
+                    <a href="/profile">Ver perfil</a>
+                </div>
+            </div>
+            <br />
+        </section>
+        <section class="counters">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h4><b>Tweets</b></h4>
+                    <span th:text="0"></span>
+                </div>
+                <div class="col-lg-4">
+                    <h4><b>Seguidores</b></h4>
+                    <span th:text="0"></span>
+                </div>
+                <div class="col-lg-4">
+                    <h4><b>Seguindo</b></h4>
+                    <span th:text="0"></span>
+                </div>
+            </div>
+            <br />
+        </section>
+    </div>
+</div>
 </body>
 </html>
