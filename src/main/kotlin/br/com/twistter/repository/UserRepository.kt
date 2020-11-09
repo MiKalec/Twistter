@@ -15,7 +15,6 @@ interface UserRepository : CrudRepository<User, Long> {
     @Query("SELECT u FROM User u WHERE lower(u.name) LIKE lower(concat('%', ?1, '%')) ORDER BY u.followerCount DESC")
     fun findByNameContainingOrdered(name: String?): Iterable<User?>?
 
-    //    TODO: Utilizar query method ao invés de @Query
     fun findByNameIgnoreCaseContaining(name: String?): Iterable<User?>?
 
     fun countUserFollowersById(id: Long?): Long?
