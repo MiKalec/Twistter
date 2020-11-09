@@ -38,17 +38,17 @@ data class User(
     @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL])
     var userRoles: Set<UserRoles?>? = null,
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     @ColumnDefault("0")
-    var tweetCount: Int? = null,
+    var tweetCount: Int? = 0,
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     @ColumnDefault("0")
-    var followerCount: Int? = null,
+    var followerCount: Int? = 0,
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     @ColumnDefault("0")
-    var followingCount: Int? = null,
+    var followingCount: Int? = 0,
 
     @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL])
     val userTweets: Set<Tweet?>? = null,
