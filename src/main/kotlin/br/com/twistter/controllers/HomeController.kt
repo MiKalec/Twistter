@@ -55,6 +55,15 @@ class HomeController(
         return home
     }
 
+    @RequestMapping("/retweet/{id}")
+    fun retweet(user: Principal?, @PathVariable(name = "id") id: Long?): ModelAndView? {
+        val home = ModelAndView("redirect:/")
+        val retweeted = Tweet()
+        retweeted.setTweetText(getTweet(id!!).tweetText)
+        newTweet(user!!, retweeted)
+        return home
+    }
+
     private fun isTweetOwner(user: Principal?, id: Long?): Boolean {
         val tweetOwner: User? = getTweet(id!!).user
         val userSession = getUserLogged(user!!)
