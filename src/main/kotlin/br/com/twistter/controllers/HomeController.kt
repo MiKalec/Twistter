@@ -25,6 +25,7 @@ class HomeController(
         val user = getUserLogged(principal)
         fillUser(mv, user)
         fillTweets(mv, user)
+        fillMostFollowers(mv, user)
 
         return mv
     }
@@ -83,6 +84,18 @@ class HomeController(
         val tweets = tweetRepository.findTweets(user!!.id)
         mv.addObject("tweets", tweets)
     }
+
+    private fun fillMostFollowers(mv: ModelAndView, user: User?) {
+        var userFollows: List<User?>? = getFollowedUsers(user!!.id!!)
+        val followers: Int
+        if (userFollows!!.isNotEmpty()) {
+            followers = if (userFollows.size > 3) 3 else userFollows.size
+            userFollows = userFollows.subList(0, followers)
+        }
+        mv.addObject("mostFollowers", userFollows)
+    }
+
+    private fun getFollowedUsers(id: Long) = userRepository.findUsersOrderedByFollowerCount(id)
 
     private fun getUserLogged(principal: Principal) =
         userRepository.findByLogin(principal.name)
