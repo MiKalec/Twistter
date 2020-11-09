@@ -16,13 +16,13 @@ import javax.servlet.http.HttpServletResponse
 
 class RegisterControllerTest {
 
-    val userRepository: UserRepository = mockk()
-    val userRolesRepository: UserRolesRepository = mockk()
-    val passwordEncoder: PasswordEncoder = mockk()
+    private val userRepository: UserRepository = mockk()
+    private val userRolesRepository: UserRolesRepository = mockk()
+    private val passwordEncoder: PasswordEncoder = mockk()
 
-    val httpServletResponse: HttpServletResponse = mockk()
+    private val httpServletResponse: HttpServletResponse = mockk()
 
-    val registerController: RegisterController = RegisterController(userRepository, userRolesRepository, passwordEncoder)
+    private val registerController: RegisterController = RegisterController(userRepository, userRolesRepository, passwordEncoder)
 
     @Test
     fun registerPageTest() {
