@@ -22,8 +22,9 @@ class HomeControllerTest {
     @Test
     fun testHomeController() {
         every { principal.name } returns "mockUser"
-        every { userRepository.findByLogin(any()) } returns User()
+        every { userRepository.findByLogin(any()) } returns User(id = 1)
         every { tweetRepository.findTweets(any()) } returns null
+        every { userRepository.findUsersOrderedByFollowerCount(any()) } returns emptyList()
 
         val result = homeController.homePage(tweet, principal)
 
