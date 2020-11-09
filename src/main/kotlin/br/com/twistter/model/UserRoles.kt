@@ -15,7 +15,6 @@ data class UserRoles(
     @JoinColumn(name = "userId", nullable = false)
     var user: User? = null,
 
-
     @Column
     @Enumerated(EnumType.STRING)
     private var role: RoleType? = null,
