@@ -38,7 +38,7 @@ class HomeController(
 
         home.addObject("tweet", tweet)
         tweetRepository.save(tweet)
-        userToUpdate!!.tweetCount = countTweets(userToUpdate.id)!!.plus(1)
+        userToUpdate!!.tweetCount = countTweets(userToUpdate.id)
         userRepository.save(userToUpdate)
         return home
     }
