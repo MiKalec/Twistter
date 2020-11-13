@@ -54,5 +54,8 @@ data class User(
     val userTweets: Set<Tweet?>? = null,
 
     @Transient
-    var alreadyFollows: Boolean? = null
+    var alreadyFollows: Boolean? = false,
+
+    @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL])
+    val userFollowers: Set<Follower?>? = null
 )

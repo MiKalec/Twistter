@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse
 import javax.validation.Valid
 
 @Controller
-class   RegisterController(
+class RegisterController(
     private val userRepository: UserRepository,
     private val userRolesRepository: UserRolesRepository,
     private val passwordEncoder: PasswordEncoder

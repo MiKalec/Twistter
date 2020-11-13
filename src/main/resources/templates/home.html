@@ -25,6 +25,7 @@
         </div>
         <ul class="nav navbar-nav">
             <li><a class="active" href="/">Home</a></li>
+            <li><a href="/search">Buscar</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#" th:href="@{/logout}" method="post"><span class="glyphicon glyphicon-log-out"></span>
@@ -76,6 +77,25 @@
             </div>
             <br/>
         </section>
+        <div class="split followers" th:object="${mostFollowers}">
+            <h2>Seguidores</h2>
+            <br />
+            <table>
+                <tbody>
+                <tr th:if="${mostFollowers.empty}">
+                    <td>Você ainda não segue nenhum usuário!</td>
+                </tr>
+                <tr class="mostFollowers" th:each="followed : ${mostFollowers}">
+                    <td>
+                        <b><span th:text="${followed.name}">Name</span></b> <br />
+                        <span th:text="${followed.followerCount}">Seguidores</span>
+                        <text th:if="${followed.followerCount == 1}">seguidor</text>
+                        <text th:if="${followed.followerCount != 1}">seguidores</text>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <div class="col-lg-8" th:object="${tweets}">
         <table>
