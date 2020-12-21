@@ -1,0 +1,88 @@
+.split {
+    position: fixed;
+    z-index: 1;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.profile {
+    width: 40%;
+    height: 50%;
+    left: 0;
+    top: 0;
+    background-color: blue;
+}
+
+.feed {
+    width: 60%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    background-color: red;
+}
+
+.followers{
+    width: 30%;
+    height: 60%;
+    left: 0;
+    bottom: 0;
+    border : solid 4px gray
+}
+
+.column {
+    float: left;
+}
+
+.card {
+    display: flex;
+    width: 100%;
+    height: 25%;
+    border: 1px solid #000;
+    text-align: left;
+}
+
+.counters {
+    background-color: white;
+    display: flex;
+}
+
+.avatar {
+    width: 15%;
+    height: 100%;
+    border:1px solid #000;
+    background-color: white;
+}
+
+.container {
+    left: 5px;
+    padding-left: 5px;
+    width: 80%;
+    height: 100%;
+    background-color: white;
+    border:1px solid #000;
+}
+
+.tweet-form>input {
+    width: 100%;
+    height: 25%;
+}
+
+img {
+  border-radius: 8px;
+}
+
+.newTweet {
+    background-color: white;
+}
+
+.newTweet .hidden {
+    visibility: hidden;
+}
+
+.newTweet:hover .hidden {
+    visibility: visible;
+}
+
+div {
+    display: block;
+}
