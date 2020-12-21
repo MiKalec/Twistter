@@ -42,7 +42,7 @@
                     <h2><b>
                         <div th:text="*{name}"></div>
                     </b></h2>
-                    <a href="/profile">Ver perfil</a>
+                    <a href="/profile">Editar perfil</a>
                 </div>
             </div>
             <br/>
@@ -144,7 +144,7 @@
                                 var button = $(event.relatedTarget)
                                 var recipient = button.data('whatever')
                                 var modal = $(this)
-                                modal.find('.modal-title).text(recipient)
+                                modal.find('.modal-title').text(recipient)
                                 modal.find('.modal-body input').val(recipient)
                             })
                         </script>

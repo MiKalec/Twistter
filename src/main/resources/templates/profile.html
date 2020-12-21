@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+    <link th:href="@{/css/form.css}" rel="stylesheet" >
+</head>
+<body>
+<h2>Alterar perfil</h2>
+<!--/*@thymesVar id="person" type="br.com.twistter.model.User"*/-->
+<form action="#" class="simple-form" th:action="@{/alterProfile}" th:object="${person}" method="post">
+    <label>Nome:</label> <input type="text" name="name" th:value="*{name}" required/> <br />
+    <label>Login:</label> <input type="text" name="login" th:value="*{login}" required/> <br />
+    <label>Senha:</label> <input type="password" name="password" th:value="*{password}" minlength="5" required/> <br />
+    <label>Confirmar Senha:</label> <input type="password" name="password2" th:value="*{password2}" required/> <br />
+    <div class="gender">
+        <label>Sexo:</label>
+        <input type="radio" name="gender" value="M" required>M
+        <input type="radio" name="gender" value="F">F
+        <br>
+    </div>
+    <button type="submit">Alterar</button> <br />
+</form>
+</body>
+</html>
