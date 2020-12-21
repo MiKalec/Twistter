@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Editar Perfil</title>
-    <link rel="stylesheet" th:href="@{/css/form.css}" >
+    <link rel="stylesheet" th:href="@{/css/form.css}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 <h2>Alterar perfil</h2>
 <!--/*@thymesVar id="person" type="br.com.twistter.model.User"*/-->
 <form action="#" class="simple-form" th:action="@{/alterProfile}" th:object="${person}" method="post">
-    <label>Nome:</label> <input type="text" id="name" name="name" th:value="*{name}" required onfocusout="validate(id)"/> <br />
-    <label>Login:</label> <input type="text" id="login" name="login" th:value="*{login}" required onfocusout="validate(id)"/> <br />
-    <label>Senha:</label> <input type="password" id="password" name="password" th:value="*{password}" minlength="5" required onfocusout="validate(id)"/> <br />
-    <label>Confirmar Senha:</label> <input type="password" id="password2" name="password2" th:value="*{password2}" required onfocusout="validate(id)"/> <br />
+    <label>Nome:</label> <input type="text" id="name" name="name" th:value="*{name}" required
+                                onfocusout="validate(id)"/> <br/>
+    <label>Login:</label> <input type="text" id="login" name="login" th:value="*{login}" required
+                                 onfocusout="validate(id)"/> <br/>
+    <label>Senha:</label> <input type="password" id="password" name="password" th:value="*{password}" minlength="5"
+                                 required onfocusout="validate(id)"/> <br/>
+    <label>Confirmar Senha:</label> <input type="password" id="password2" name="password2" th:value="*{password2}"
+                                           required onfocusout="validate(id)"/> <br/>
     <script>
         function validate(id) {
             var field = document.getElementById(id);
@@ -28,8 +32,7 @@
                 var password2 = document.getElementById("password2");
                 if (password2.value != password.value) {
                     password2.style.borderColor = "red";
-                }
-                else {
+                } else {
                     password2.style.borderColor = password.style.borderColor;
                 }
             }
@@ -41,7 +44,8 @@
         <input type="radio" name="gender" value="F">F
         <br>
     </div>
-    <button type="submit">Alterar</button> <br />
+    <button type="submit">Alterar</button>
+    <br/>
 </form>
 </body>
 </html>

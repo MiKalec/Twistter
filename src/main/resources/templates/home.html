@@ -70,7 +70,7 @@
         <section class="tweet">
             <div class="row">
                 <form action="#" class="tweet-form" th:action="@{/newTweet}" th:object="${tweet}" method="post">
-                    <img src="https://www.google.com/url?sa=i&url=http%3A%2F%2Fqnimate.com%2Funderstanding-html-img-tag%2F&psig=AOvVaw1PIAoO0yMcMLs8Y29_A255&ust=1608606417367000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJDP9IKM3u0CFQAAAAAdAAAAABAD" />
+                    <img src="https://www.google.com/url?sa=i&url=http%3A%2F%2Fqnimate.com%2Funderstanding-html-img-tag%2F&psig=AOvVaw1PIAoO0yMcMLs8Y29_A255&ust=1608606417367000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJDP9IKM3u0CFQAAAAAdAAAAABAD"/>
                     <input type="text" class="col-lg-11 input-lg" name="tweetText" th:value="*{tweetText}" minlength="1"
                            maxlength="280"> <br/>
                     <div class="col-lg-11">
@@ -83,7 +83,7 @@
         </section>
         <div class="split followers" th:object="${mostFollowers}">
             <h2>Seguidores</h2>
-            <br />
+            <br/>
             <table>
                 <tbody>
                 <tr th:if="${mostFollowers.empty}">
@@ -91,7 +91,7 @@
                 </tr>
                 <tr class="mostFollowers" th:each="followed : ${mostFollowers}">
                     <td>
-                        <b><span th:text="${followed.name}">Name</span></b> <br />
+                        <b><span th:text="${followed.name}">Name</span></b> <br/>
                         <span th:text="${followed.followerCount}">Seguidores</span>
                         <text th:if="${followed.followerCount == 1}">seguidor</text>
                         <text th:if="${followed.followerCount != 1}">seguidores</text>
