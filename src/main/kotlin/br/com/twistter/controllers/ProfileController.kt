@@ -30,10 +30,22 @@ class ProfileController(
     fun alterProfile(user: @Valid User): ModelAndView {
         val mv = ModelAndView("redirect:/")
         val userToAlter: User = getUserFromSession(user.login!!)
+        if (!validateUser(user)){
+            user.password = ""
+            user.password2 = ""
+            mv.viewName = "profile"
+            mv.addObject("person", user)
+            return mv
+        }
+
         setNewUserData(user, userToAlter)
         userRepository.save(userToAlter)
         mv.addObject("person", userToAlter)
         return mv
+    }
+
+    private fun validateUser(user: @Valid User): Boolean {
+        return user.password == user.password2
     }
 
     private fun getUserFromSession(login: String): User =
