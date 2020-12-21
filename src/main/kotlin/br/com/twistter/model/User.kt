@@ -7,7 +7,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "users")
-data class User(
+class User(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Long? = null,
@@ -58,4 +58,10 @@ data class User(
 
     @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL])
     val userFollowers: Set<Follower?>? = null
-)
+
+) {
+
+    override fun toString(): String {
+        return "User(id=$id, name=$name, login=$login, password=$password, password2=$password2, gender=$gender, enabled=$enabled, creationTime=$creationTime, userRoles=$userRoles, tweetCount=$tweetCount, followerCount=$followerCount, followingCount=$followingCount, userTweets=$userTweets, alreadyFollows=$alreadyFollows, userFollowers=$userFollowers)"
+    }
+}
