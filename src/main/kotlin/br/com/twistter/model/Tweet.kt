@@ -63,4 +63,9 @@ class Tweet {
         this.creationTime = creationTime
         return this
     }
+
+    override fun toString(): String {
+        return "Tweet(tweetId=$tweetId, tweetText=$tweetText, creationTime=$creationTime)"
+    }
+
 }

@@ -28,6 +28,7 @@
 
 <h2><b>Buscar usuários</b></h2>
 <div class="container-fluid">
+    <!--/*@thymesVar id="user" type="br.com.twistter.model.User"*/-->
     <form action="#" class="form-horizontal" th:action="@{/searchUsers}" th:object="${user}" method="get">
         <input type="text" name="name" th:value="${name}">
         <button type="submit">Buscar</button>

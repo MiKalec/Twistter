@@ -5,7 +5,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "user_roles")
-data class UserRoles(
+class UserRoles(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "role_id")
@@ -22,4 +22,8 @@ data class UserRoles(
     @Column(nullable = false)
     var login: String? = null
 
-)
+) {
+    override fun toString(): String {
+        return "UserRoles(id=$id, role=$role, login=$login)"
+    }
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Perfil</title>
+    <link rel="stylesheet" th:href="@{/css/form.css}" >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<h2>Alterar perfil</h2>
+<!--/*@thymesVar id="person" type="br.com.twistter.model.User"*/-->
+<form action="#" class="simple-form" th:action="@{/alterProfile}" th:object="${person}" method="post">
+    <label>Nome:</label> <input type="text" id="name" name="name" th:value="*{name}" required onfocusout="validate(id)"/> <br />
+    <label>Login:</label> <input type="text" id="login" name="login" th:value="*{login}" required onfocusout="validate(id)"/> <br />
+    <label>Senha:</label> <input type="password" id="password" name="password" th:value="*{password}" minlength="5" required onfocusout="validate(id)"/> <br />
+    <label>Confirmar Senha:</label> <input type="password" id="password2" name="password2" th:value="*{password2}" required onfocusout="validate(id)"/> <br />
+    <script>
+        function validate(id) {
+            var field = document.getElementById(id);
+            if (field.value.length == 0) {
+                field.style.backgroundColor = "#ff8080";
+            } else {
+                field.style.backgroundColor = "#cccccc";
+            }
+
+            if (id == "password" || id == "password2") {
+                var password = document.getElementById("password");
+                var password2 = document.getElementById("password2");
+                if (password2.value != password.value) {
+                    password2.style.borderColor = "red";
+                }
+                else {
+                    password2.style.borderColor = password.style.borderColor;
+                }
+            }
+        }
+    </script>
+    <div class="gender">
+        <label>Sexo:</label>
+        <input type="radio" name="gender" value="M" required>M
+        <input type="radio" name="gender" value="F">F
+        <br>
+    </div>
+    <button type="submit">Alterar</button> <br />
+</form>
+</body>
+</html>
