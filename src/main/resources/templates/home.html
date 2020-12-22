@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Sua home</title>
+<!--    <link rel="stylesheet" th:href="@{/css/home.css}">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -15,9 +16,11 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 </head>
 <body>
-
+<!--<img src="resources/images/redBird.png"/>-->
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -79,7 +82,7 @@
         </section>
         <div class="split followers" th:object="${mostFollowers}">
             <h2>Seguidores</h2>
-            <br />
+            <br/>
             <table>
                 <tbody>
                 <tr th:if="${mostFollowers.empty}">
@@ -87,7 +90,7 @@
                 </tr>
                 <tr class="mostFollowers" th:each="followed : ${mostFollowers}">
                     <td>
-                        <b><span th:text="${followed.name}">Name</span></b> <br />
+                        <b><span th:text="${followed.name}">Name</span></b> <br/>
                         <span th:text="${followed.followerCount}">Seguidores</span>
                         <text th:if="${followed.followerCount == 1}">seguidor</text>
                         <text th:if="${followed.followerCount != 1}">seguidores</text>

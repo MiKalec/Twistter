@@ -9,38 +9,42 @@
 <body>
 <h2>Criar conta</h2>
 <form action="#" class="simple-form" th:action="@{/doRegister}" th:object="${person}" method="post">
-    <label>Nome:</label> <input type="text" id="name" name="name" th:value="*{name}" required onfocusout="validate(id)"/> <br />
-    <label>Login:</label> <input type="text" id="login" name="login" th:value="*{login}" required onfocusout="validate(id)"/> <br />
-    <label>Senha:</label> <input type="password" id="password" name="password" th:value="*{password}" minlength="5" required onfocusout="validate(id)"/> <br />
-    <label>Confirmar Senha:</label> <input type="password" id="password2" name="password2" th:value="*{password2}" required onfocusout="validate(id)"/> <br />
+    <label>Nome:</label> <input type="text" id="name" name="name" th:value="*{name}" required
+                                onfocusout="validate(id)"/> <br/>
+    <label>Login:</label> <input type="text" id="login" name="login" th:value="*{login}" required
+                                 onfocusout="validate(id)"/> <br/>
+    <label>Senha:</label> <input type="password" id="password" name="password" th:value="*{password}" minlength="5"
+                                 required onfocusout="validate(id)"/> <br/>
+    <label>Confirmar Senha:</label> <input type="password" id="password2" name="password2" th:value="*{password2}"
+                                           required onfocusout="validate(id)"/> <br/>
     <script>
-            function validate(id) {
-                var field = document.getElementById(id);
-                if (field.value.length == 0) {
-                    field.style.backgroundColor = "#ff8080";
-                } else {
-                    field.style.backgroundColor = "#cccccc";
-                }
+        function validate(id) {
+            var field = document.getElementById(id);
+            if (field.value.length == 0) {
+                field.style.backgroundColor = "#ff8080";
+            } else {
+                field.style.backgroundColor = "#cccccc";
+            }
 
-                if (id == "password" || id == "password2") {
-                    var password = document.getElementById("password");
-                    var password2 = document.getElementById("password2");
-                    if (password2.value != password.value) {
-                        password2.style.borderColor = "red";
-                    }
-                    else {
-                        password2.style.borderColor = password.style.borderColor;
-                    }
+            if (id == "password" || id == "password2") {
+                var password = document.getElementById("password");
+                var password2 = document.getElementById("password2");
+                if (password2.value != password.value) {
+                    password2.style.borderColor = "red";
+                } else {
+                    password2.style.borderColor = password.style.borderColor;
                 }
             }
-        </script>
+        }
+    </script>
     <div class="gender">
         <label>Sexo:</label>
         <input type="radio" name="gender" value="M" required>M
         <input type="radio" name="gender" value="F">F
         <br>
     </div>
-    <button type="submit">Cadastrar</button> <br />
+    <button type="submit">Cadastrar</button>
+    <br/>
 </form>
 </body>
 </html>

@@ -1,45 +1,105 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<style>
+    .twistter-login {
+        margin: auto;
+        width: 60%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        max-width: 700px;
+    }
+
+    .container-fluid {
+        border: 5px solid #FFFF;
+    }
+
+    .title {
+        line-height: 1rem;
+        font-weight: bold;
+        font-size: 23px !important;
+        text-align: center;
+    }
+
+    .btn.btn-primary {
+        background-color: rgb(29, 161, 242) !important;
+        border-color: rgb(29, 161, 242) !important;
+        min-width: 500px;
+        border-radius: 20px;
+    }
+
+    .form-horizontal {
+        margin-left: 87.5px;
+    }
+
+    .col-lg-6 {
+        min-width: 525px
+    }
+
+    .no-account {
+        width: 100%;
+        text-align: center;
+    }
+
+    .alert.alert-danger {
+        min-width: 490px;
+        width: fit-content;
+        text-align: center;
+        margin: 10px 105px;
+    }
+
+</style>
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!--    <link rel="stylesheet" th:href="@{/css/form.css}">-->
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <body>
-<div class="container-fluid">
-    <h2>Entrar</h2>
-    <div th:if="${param.error}" class="alert alert-danger alert-dismissable">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        Wrong user or password
-    </div>
 
-    <form class="form-horizontal" th:action="@{/login.html}" method="post">
-        <!--                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
-        <div class="form-group">
-            <label class="control-label col-lg-2" for="username">User:</label>
-            <div class="col-lg-6">
-                <input type="text" class="form-control" id="username" name="username" autofocus="autofocus">
-            </div>
+<div class="container-fluid">
+    <div class="twistter-login">
+        <h2 class="title">Entrar no Twistter</h2>
+        <div th:if="${param.error}" class="alert alert-danger alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            Wrong user or password
         </div>
-        <div class="form-group">
-            <label class="control-label col-lg-2" for="password">Senha:</label>
-            <div class="col-lg-6">
-                <input type="password" class="form-control" id="password" name="password">
+        <form class="form-horizontal" th:action="@{/login.html}" method="post">
+            <!--                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
+            <div class="form-group">
+                <label class="control-label col-lg-2" for="username">User:</label>
+                <div class="col-lg-6">
+                    <input type="text" class="form-control" id="username" name="username" autofocus="autofocus">
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <div class="col-lg-offset-2 col-sm-6">
-                <button type="submit" class="btn btn-primary">Entrar</button>
+            <div class="form-group">
+                <label class="control-label col-lg-2" for="password">Senha:</label>
+                <div class="col-lg-6">
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
             </div>
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-sm-6">
+                    <button type="submit" class="btn btn-primary">Entrar</button>
+                </div>
+            </div>
+        </form>
+        <div class="no-account">
+            <a class="signup" href="/signup">Não possui conta?</a>
         </div>
-    </form>
-    <a class="signup" href="/signup">Não possui conta?</a>
+    </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 </html>
