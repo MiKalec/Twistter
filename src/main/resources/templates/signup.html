@@ -57,30 +57,24 @@
     </div>
 </div>
 <script>
-        function validate(id) {
-            var field = document.getElementById(id);
-            if (field.value.length == 0) {
-                field.style.backgroundColor = "#ff8080";
-            } else {
-                field.style.backgroundColor = "#cccccc";
-            }
-
-            if (id == "password" || id == "password2") {
-                var password = document.getElementById("password");
-                var password2 = document.getElementById("password2");
-                if (password2.value != password.value) {
-                    password2.style.borderColor = "red";
-                } else {
-                    password2.style.borderColor = password.style.borderColor;
-                }
-            }
+    function validate(id) {
+        var field = document.getElementById(id);
+        if (field.value.length == 0) {
+            field.style.backgroundColor = "#ff8080";
+        } else {
+            field.style.backgroundColor = "#cccccc";
         }
 
-
-
-
-
-
+        if (id == "password" || id == "password2") {
+            var password = document.getElementById("password");
+            var password2 = document.getElementById("password2");
+            if (password2.value != password.value) {
+                password2.style.borderColor = "red";
+            } else {
+                password2.style.borderColor = password.style.borderColor;
+            }
+        }
+    }
 
 
 </script>
