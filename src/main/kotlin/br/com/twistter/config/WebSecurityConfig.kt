@@ -15,7 +15,7 @@ import javax.sql.DataSource
 open class WebSecurityConfig(private val dataSource: DataSource) : WebSecurityConfigurerAdapter() {
     companion object {
         private const val LOGIN_PAGE = "/login.html"
-        private const val DEFAULT_URL = "/home.html"
+        private const val DEFAULT_URL = "/"
         private const val USERNAME = "username"
         private const val PASSWORD = "password"
     }
